@@ -2,16 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Git SCM') {
             steps {
-                echo 'Hello World'
-                sh 'mkdir Hello'
+                git branch: 'main', url: 'https://github.com/jmalahmad/espsjuin2023.git'
             }
         }
-        stage('By') {
+        stage('Run') {
             steps {
-                echo 'By'
-                sh 'mkdir By'
+                echo 'Running'
+                sh 'mvn clean install'
             }
         }
     }
